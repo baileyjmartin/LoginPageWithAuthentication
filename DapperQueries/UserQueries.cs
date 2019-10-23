@@ -12,6 +12,10 @@ namespace LoginPageWithAuthentication.DapperQueries
     /// </summary>
     public class UserQueries
     {
+        /// <summary>
+        /// Gets all of the users stored in the database
+        /// </summary>
+        /// <returns>IEnumerable containing all of the User data</returns>
         public IEnumerable<User> GetUsers()
         {
             using (IDbConnection db = new SqlConnection())

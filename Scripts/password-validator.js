@@ -1,4 +1,5 @@
-﻿var lettersDigitsRegEx = /([a-zA-Z])([0-9])/;
+﻿var lengthRegEx = /^[a-zA-Z0-9]{5,12}$/;
+var lettersDigitsRegEx = /([a-zA-Z])([0-9])/;
 var repeatCharactersRegEx = /(.{2,})\1/;
 
 $(function () {
@@ -9,8 +10,8 @@ function PasswordViewModel() {
     var self = this;
 
     self.password = ko.observable("");
-    self.correctLength = ko.computed(function() {
-        return (self.password().length > 4 && self.password().length < 13);
+    self.correctLength = ko.computed(function () {
+        return lengthRegEx.test(self.password());
     });
     self.lettersDigits = ko.computed(function() {
         return lettersDigitsRegEx.test(self.password());

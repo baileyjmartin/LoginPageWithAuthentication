@@ -70,7 +70,7 @@ namespace LoginPageWithAuthentication.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(12, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
+        [StringLength(12, ErrorMessage = "The {0} must be between {2} and {1} characters long.", MinimumLength = 5)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -89,7 +89,7 @@ namespace LoginPageWithAuthentication.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(12, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
+        [StringLength(12, ErrorMessage = "The {0} must be between {2} and {1} characters long.", MinimumLength = 5)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

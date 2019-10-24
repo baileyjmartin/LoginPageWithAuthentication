@@ -29,12 +29,14 @@
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
     </div>
-    <div class="col-md-offset-2 col-md-10">
-        <i class="fa" data-bind="class: correctLength ? 'fa-check-circle' : 'fa-times-circle' "></i> Between 5 and 12 characters
-    </div>
+    <p class="col-md-offset-2 col-md-10">
+        <i class="fa" data-bind="class: correctLength() ? 'fa-check-circle' : 'fa-times-circle' "></i> Between 5 and 12 characters<br />
+        <i class="fa" data-bind="class: lettersDigits() ? 'fa-check-circle' : 'fa-times-circle' "></i> At least one letter and number<br />
+        <i class="fa" data-bind="class: !repeatCharacters() ? 'fa-check-circle' : 'fa-times-circle' "></i> No repeated character sequences (common words like "letter" allowed)
+    </p>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value="Register" data-bind="enable: correctLength() && lettersDigits() && !repeatCharacters()"/>
         </div>
     </div>
 }
@@ -47,4 +49,5 @@
 
 @section Styles {
     @Styles.Render("~/Content/font-awesome.min.css")
+    @Styles.Render("~/Content/password-validator.css")
 }
